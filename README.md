@@ -32,25 +32,52 @@ Model 1: Baseline price using occupancy and queue length.
 Model 2: Advanced price using all engineered features in a weighted sum.
 Prices are calculated in Pathway, then exported for further processing.
 
-Post-Processing 
+Post-Processing :
 Prices are normalized and clipped to business-appropriate bounds.
 Simulated competitor prices are generated (±10% of Model 2 price).
 Competitive pricing logic is applied (undercut competitor if needed).
 
-Visualization 
+Visualization :
 Interactive plots show Model 1, Model 2, competitor, and final competitive prices over time.
  
 
 
 
 Feature Summary
+
 Occupancy Rate: Shows how full the lot is—higher rates mean higher prices.
+
 Queue Length: Longer lines signal more demand, raising prices.
+
 Traffic Nearby: More traffic means more people looking for parking.
+
 Special Day Indicator: Prices go up during events or holidays.
+
 Rolling Average of Occupancy: Smooths out sudden changes for steadier pricing.
+
 Geo Proximity Score: Lots closer to the city center get higher prices.
+
 Vehicle Type: Prices adjust for different vehicle categories.
+
 Simulated Competitor Price: Mimics real market competition to keep our prices competitive.
+
+ASSUMPTIONS
+
+
+assumptions are done for parameters which are tunable,hourly aggregation is done from taking the reference for industrial practices and competitor prices are simulated since we didnot have the data.
+
+SUMMARY
+
+MODEL 1 is a simple,interpretable model where price increases linearly as occupancy and queuelength rises.
+
+MODEL 2 is feature rich and includes simulated competitive prices and also includes geo proximity and is bounded and normalized for ensuring smooth pricing.It reflects both technical and business relevance.
+
+Unfortunately the file i uploaded is showing invalid but you can download the raw file and upload the dataset to run it.
+for reference I attached architecture flow diagram and Im also attaching the notebook link to access it.Im a beginner so please ignore the mistakes if there are any
+
+link-https://colab.research.google.com/drive/1A6NyZOygyBBPud7EA4kzWEHehKMPBlhx?usp=sharing
+
+THANK YOU
+
 
 
