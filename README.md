@@ -1,83 +1,67 @@
-DYNAMIC PRICING FOR URBAN PARKING LOTS
+# Dynamic Pricing for Urban Parking Lots
 
+## Overview
+Implemented a dynamic pricing system for urban parking lots that adapts prices
+using real-time demand signals, feature engineering, and competitive pricing
+logic. The system focuses on interpretable models, real-time aggregation, and
+business-aware constraints to improve utilization and pricing stability.
 
-Overview
+## Problem Statement
+Static parking prices do not reflect real-world demand, leading to peak-hour
+congestion, off-peak underutilization, and inefficient pricing. This project
+demonstrates how data-driven pricing can address these challenges.
 
-This project's objective is to implement a dynamic pricing system for urban parking lots using real-time data and feature engineering. The ultimate goal is to optimize pricing strategies and parking prices based on demand signals, appropriate features, ensuring both technical and business requirements, and simulated competitive pricing. 
+## Tech Stack
+- Python 3: Core implementation
+- Google Colab: Execution environment
+- Pandas, NumPy: Data preprocessing and feature engineering
+- Matplotlib: Exploratory analysis
+- Bokeh: Interactive visualization
+- Pathway: Real-time streaming and window aggregation
+- GitHub: Version control
 
-TECH STACK
-Google Colab  : execution environment
-Python 3      : core programming language
-Pandas, Numpy : for data processing and feature engineering
-Matplot       : for visualizing and understanding data
-Pathway       : for real-time data streaming and processing,for real-time window aggregation
-bokeh         : for interactive data visualization
-GitHub        : collaboration and version control
+## System Workflow
 
-Architecture Flow
+### Data Preprocessing
+- Cleaned parking data and encoded categorical variables.
+- Converted and sorted time fields for window-based aggregation.
 
-Data Ingestion and pre-processing:
-parking data is loaded and preprocessed.
-some categorical columns are converted to numerical columns.
-time columns are converted to datetime and sorted for windowing.
+### Feature Engineering
+- Occupancy rate, queue length, and traffic intensity.
+- Rolling averages for demand smoothing.
+- Geo-proximity score, special day, and vehicle type indicators.
 
-Feature engineering:
-necessary features are added and sorted main key features are rolling average of occupancy rate,competitor prices and geo proximity score.
+### Real-Time Aggregation
+- Hourly tumbling windows using Pathway.
+- Computation of peak and average demand metrics.
 
-Pathway(real-time aggregation):
-data is aggregated into hourly tumbling windows as suggested from industrial practices, for each window necessary peak and average values are calculated.
+### Pricing Models
+- **Model 1 (Baseline):** Linear pricing based on occupancy and queue length.
+- **Model 2 (Advanced):** Weighted pricing using all engineered features,
+  designed for smoother and demand-aware price behavior.
 
-Demand score and price calculation:
-Model 1: Baseline price using occupancy and queue length.
-Model 2: Advanced price using all engineered features in a weighted sum.
-Prices are calculated in Pathway, then exported for further processing.
+### Competitive Pricing
+- Prices normalized and bounded for stability.
+- Competitor prices simulated (±10%).
+- Competitive logic applied to maintain market alignment.
 
-Post-Processing :
-Prices are normalized and clipped to business-appropriate bounds.
-Simulated competitor prices are generated (±10% of Model 2 price).
-Competitive pricing logic is applied (undercut competitor if needed).
+### Visualization
+- Interactive comparison of baseline, advanced, competitor,
+  and final prices over time.
 
-Visualization :
-Interactive plots show Model 1, Model 2, competitor, and final competitive prices over time.
- 
+## Key Outcomes
+- Improved utilization balance compared to static pricing.
+- Better handling of demand spikes with controlled volatility.
+- Market-aware pricing through competitive simulation.
 
+## Assumptions
+- Hourly aggregation chosen based on common industry practices.
+- Certain parameters are assumed and tunable.
+- Competitor pricing is simulated due to data limitations.
 
-
-Feature Summary
-
-Occupancy Rate: Shows how full the lot is—higher rates mean higher prices.
-
-Queue Length: Longer lines signal more demand, raising prices.
-
-Traffic Nearby: More traffic means more people looking for parking.
-
-Special Day Indicator: Prices go up during events or holidays.
-
-Rolling Average of Occupancy: Smooths out sudden changes for steadier pricing.
-
-Geo Proximity Score: Lots closer to the city center get higher prices.
-
-Vehicle Type: Prices adjust for different vehicle categories.
-
-Simulated Competitor Price: Mimics real market competition to keep our prices competitive.
-
-ASSUMPTIONS
-
-
-assumptions are done for parameters which are tunable,hourly aggregation is done from taking the reference for industrial practices and competitor prices are simulated since we didnot have the data.
-
-SUMMARY
-
-MODEL 1 is a simple,interpretable model where price increases linearly as occupancy and queuelength rises.
-
-MODEL 2 is feature rich and includes simulated competitive prices and also includes geo proximity and is bounded and normalized for ensuring smooth pricing.It reflects both technical and business relevance.
-
-Unfortunately the file i uploaded is showing invalid but you can download the raw file and upload the dataset to run it.
-for reference I attached architecture flow diagram and Im also attaching the notebook link to access it.Im a beginner so please ignore the mistakes if there are any
-
-link-https://colab.research.google.com/drive/1A6NyZOygyBBPud7EA4kzWEHehKMPBlhx?usp=sharing
-
-THANK YOU
-
+## Project Structure
+- `saproject_final.ipynb`: Analysis, feature engineering, pricing logic.
+- `dataset.csv`: Parking and traffic data.
+- `diagram.png`: System architecture.
 
 
