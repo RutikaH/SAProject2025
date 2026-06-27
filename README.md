@@ -261,6 +261,7 @@ urban-parking-pricing/
 ├── .gitignore
 ├── dashboard_preview.png
 ├── feature_importance.png
+├── occupancy_heatmap.png
 |── config.yaml
 ├── urban_parking_pricing.ipynb
 └── architecture.md
