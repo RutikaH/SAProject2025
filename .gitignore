@@ -1,0 +1,38 @@
+# Data — never commit raw data
+*.csv
+*.xlsx
+*.parquet
+
+# Generated outputs
+*.html
+*.png
+!dashboard_preview.png
+!feature_importance.png
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+.Python
+*.egg-info/
+dist/
+build/
+
+# Virtual environments
+venv/
+env/
+.venv/
+
+# Environment variables
+.env
+
+# Jupyter checkpoints
+.ipynb_checkpoints/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Pathway generated files
+pathway_output.csv
+parking_stream.csv
