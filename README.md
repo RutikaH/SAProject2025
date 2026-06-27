@@ -250,22 +250,6 @@ Full end-to-end pipeline on Google Colab — no setup required:
 | Matplotlib | Feature importance chart |
 | Haversine | Geographic distance computation |
 
----
-
-## Repository Structure
-
-```
-urban-parking-pricing/
-├── README.md
-├── requirements.txt
-├── .gitignore
-├── dashboard_preview.png
-├── feature_importance.png
-├── occupancy_heatmap.png
-|── config.yaml
-├── urban_parking_pricing.ipynb
-└── architecture.md
-```
 
 ---
 
